@@ -1,4 +1,4 @@
-<html>
+<html ng-app="lego">
 	<head>
 		<title>Walmart give us free stuff</title>
 		<meta charset="UTF-8">
@@ -8,10 +8,15 @@
 		<link rel="stylesheet" href="./assets/styles/css/normalize.css">
 		<link rel="stylesheet" href="./assets/styles/css/styles.css">
 	</head>
-	<body>
-		Here goes our content
+	<body ng-controller="mainCtrl">
+		<div ng-repeat="item in items">
+			<img ng-src="{{item.thumbnailImage}}">
+			<h3>{{item.name}}</h3>
+			<p>{{item.shortDescription}}</p>
+		</div>
 
 		<script src="./assets/js/jquery-3.0.0-alpha1.js"></script>
-		<script src="./assets/js/main.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+		<script src="./assets/js/app.js"></script>
 	</body>
 </html>
