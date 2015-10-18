@@ -1,3 +1,7 @@
+$cart-width: 400px;
+
+$cart-background: #e9f4f3;
+
 html, body {
 	background-color: #eee;
 	font-family: BrandonReg, serif; 
@@ -14,4 +18,16 @@ html, body {
 		position: relative;
 		z-index: 1;
 	}
+}
+
+section#grid {
+	float: left;
+	width: calc(100% - 400px);
+}
+
+section#cart {
+	float: right;
+	width: $cart-width;
+
+	background-color: $cart-background;
 }

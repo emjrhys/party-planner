@@ -9,3 +9,12 @@ html, body {
   .item button {
     position: relative;
     z-index: 1; }
+
+section#grid {
+  float: left;
+  width: calc(100% - 400px); }
+
+section#cart {
+  float: right;
+  width: 400px;
+  background-color: #e9f4f3; }
