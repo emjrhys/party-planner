@@ -106,7 +106,7 @@ section#selection {
 			border: none;
 			outline: none;
 
-			font-family: BrandonLight;
+			font-family: BrandonReg;
 			font-size: 1.3em;
 		}
 
@@ -232,13 +232,23 @@ section#grid {
 		margin: 0 auto;
 		padding: 0 30px;
 
+		
 		a {
+			float: right;
+			padding-top: 28px;
+
 			margin-left: 10px;
 			cursor: pointer;
 
+			color: $product-side-blue;
+
 			&:hover {
-				color: $medium-grey;
+				color: $light-blue;
 			}
+		}
+
+		#line{
+			color: $medium-grey;
 		}
 
 		.reset { 
@@ -317,6 +327,10 @@ section#cart {
 		margin-bottom: 14px;
 		padding-bottom: 14px;
 		border-bottom: 1px solid $light-grey;
+
+		h3 {
+			padding-right: 30px; 
+		}
 
 		img {
 			width: 60px;

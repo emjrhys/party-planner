@@ -44,6 +44,7 @@
 			<header>
 				<a ng-click="resetParty()" class="reset">Change party</a>
 				<h2><span ng-if="party.theme!=party.type">{{party.theme}}</span> {{party.type}} Party</h2>
+				<a id="line">|</a>
 				<a ng-click="addRec()">Add Recommended Items</a>
 				<hr>
 			</header>
@@ -54,7 +55,7 @@
 					<div class="content">
 						<h3>{{item.name}}</h3>
 						<!-- <p ng-if="item.msrp" class="price">${{item.msrp.toFixed(2)}}</p> -->
-						<pclass="price">${{item.salePrice.toFixed(2)}}</p>
+						<p class="price">${{item.salePrice.toFixed(2)}}</p>
 					</div>
 				</li>
 			</ul>

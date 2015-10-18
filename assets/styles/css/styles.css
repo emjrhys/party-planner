@@ -287,10 +287,13 @@ section#grid {
     margin: 0 auto;
     padding: 0 30px; }
     section#grid header a {
+      float: right;
+      padding-top: 28px;
       margin-left: 10px;
-      cursor: pointer; }
+      cursor: pointer;
+      color: #88dce5; }
       section#grid header a:hover {
-        color: #808080; }
+        color: #6cc2e0; }
     section#grid header .reset {
       float: right;
       padding-top: 28px;
