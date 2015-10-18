@@ -59,13 +59,12 @@ section#grid {
 	box-sizing: border-box;
 	width: calc(100% - 450px);
 	height: 100vh;
-	padding: 0 30px;
-
 
 	overflow: hidden;
 
 	header {
 		margin: 0 auto;
+		padding: 0 30px;
 	}
 
 	h2 {
@@ -78,6 +77,7 @@ section#grid {
 
 	ul {
 		height: calc(100% - 80px);
+		padding: 0 30px;
 		overflow-y: scroll;
 	}
 
@@ -98,7 +98,6 @@ section#cart {
 	box-sizing: border-box;
 	width: $cart-width;
 	height: 100vh;
-	padding: 0 30px;
 
 	background-color: $cart-background;
 	border-left: 2px solid $medium-grey;
@@ -106,6 +105,7 @@ section#cart {
 	header {
 		margin: 0 auto;
 		color: $medium-grey;
+		padding: 0 30px;
 
 		.count {
 			float: right;
@@ -117,14 +117,17 @@ section#cart {
 		border: 1px solid $medium-grey;
 	}
 
-	ul {
+	.cart {
 		height: calc(100% - 80px);
-		overflow-y: scroll;
+		overflow-y: scroll; 
+		padding: 0 30px;
 	}
 
 	.item {
 		@include cf();
-		margin-bottom: 20px;
+		margin-bottom: 14px;
+		padding-bottom: 14px;
+		border-bottom: 1px solid $light-grey;
 
 		img {
 			width: 60px;
@@ -160,6 +163,30 @@ section#cart {
 				color: $product-side-blue;
 			}
 		}
+	}
+}
+
+.cost {
+	text-align: right;
+
+	h3 {
+		text-transform: uppercase;
+
+		font-size: 1.5em;
+		color: $medium-grey;
+		margin: 0;
+	}
+
+	.total {
+		font-family: BrandonLight;
+		color: $dark-grey;
+	}
+
+	.savings {
+		margin-left: auto;
+		margin-top: 0;
+
+		font-size: .8em;
 	}
 }
 

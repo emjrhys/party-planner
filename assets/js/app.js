@@ -4,12 +4,23 @@ angular.module('lego', [])
 	var apiKey = '85sxht8kfrf85keus8du5z8u';
 	var url = 'http://api.walmartlabs.com/v1/search?apiKey=85sxht8kfrf85keus8du5z8u&query=ipod&categoryId=3944';
 
+	var themes = {
+		"Birthday": ["Standard", "Pokemon", "Dora"],
+		"College": ["Toga", "Blacklight", "Glow"],
+		"Life Event": ["Bachelor", "Wedding", "Baby Shower", "Graduation", "Retirement"],
+		"Holiday": ["New Year", "Fourth of July", "Halloween"],
+		"Game Day": ["Basketball", "Hockey", "Baseball", "Football", "Soccer"]
+	}
+
+	$scope.partyType = null;
+	$scope.partyTheme = null;
 
 	$scope.items = []; 
 	$scope.cart = [];
 	$scope.removed = [];
 	$scope.totalCost = 0;
 	$scope.wTotalCost = 0;
+
 	var searchIds = [];
 	var searchParam = 0;
 

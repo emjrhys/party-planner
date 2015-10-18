@@ -160,16 +160,17 @@ section#grid {
   box-sizing: border-box;
   width: calc(100% - 450px);
   height: 100vh;
-  padding: 0 30px;
   overflow: hidden; }
   section#grid header {
-    margin: 0 auto; }
+    margin: 0 auto;
+    padding: 0 30px; }
   section#grid h2 {
     color: #88dce5; }
   section#grid hr {
     border: 1px solid #88dce5; }
   section#grid ul {
     height: calc(100% - 80px);
+    padding: 0 30px;
     overflow-y: scroll; }
   section#grid .item {
     *zoom: 1;
@@ -198,23 +199,26 @@ section#cart {
   box-sizing: border-box;
   width: 450px;
   height: 100vh;
-  padding: 0 30px;
   background-color: #e9f4f3;
   border-left: 2px solid #808080; }
   section#cart header {
     margin: 0 auto;
-    color: #808080; }
+    color: #808080;
+    padding: 0 30px; }
     section#cart header .count {
       float: right;
       padding-top: 10px; }
   section#cart hr {
     border: 1px solid #808080; }
-  section#cart ul {
+  section#cart .cart {
     height: calc(100% - 80px);
-    overflow-y: scroll; }
+    overflow-y: scroll;
+    padding: 0 30px; }
   section#cart .item {
     *zoom: 1;
-    margin-bottom: 20px; }
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #b3b3b3; }
     section#cart .item:before, section#cart .item:after {
       content: '';
       display: table; }
@@ -240,6 +244,21 @@ section#cart {
       cursor: pointer; }
       section#cart .item a:hover {
         color: #88dce5; }
+
+.cost {
+  text-align: right; }
+  .cost h3 {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    color: #808080;
+    margin: 0; }
+  .cost .total {
+    font-family: BrandonLight;
+    color: #4d4d4d; }
+  .cost .savings {
+    margin-left: auto;
+    margin-top: 0;
+    font-size: .8em; }
 
 .item {
   margin-bottom: 30px; }
