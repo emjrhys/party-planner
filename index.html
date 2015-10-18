@@ -70,7 +70,7 @@
 			<div class="cart">
 				<ul>
 					<li class="item" ng-repeat="item in cart">
-						<img ng-src="{{item.thumbnailImage}}">
+						<a href="{{item.productUrl}}" target="_blank"><img ng-src="{{item.thumbnailImage}}"></a>
 						<div class="content">
 							<div class="savings">
 								<span class="strikethrough" ng-if="item.msrp && item.msrp > item.salePrice"><span class="price">&nbsp;${{item.msrp.toFixed(2)}}&nbsp;</span></span>
