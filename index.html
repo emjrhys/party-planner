@@ -52,9 +52,8 @@
 					<img ng-src="{{item.thumbnailImage}}">
 					<div class="content">
 						<h3>{{item.name}}</h3>
-						<p ng-if="item.msrp" class="price">${{item.msrp.toFixed(2)}}</p>
-						<p ng-if="!item.msrp" class="price">${{item.salePrice.toFixed(2)}}</p>
-						<!-- <p>{{item.shortDescription}}</p> -->
+						<!-- <p ng-if="item.msrp" class="price">${{item.msrp.toFixed(2)}}</p> -->
+						<pclass="price">${{item.salePrice.toFixed(2)}}</p>
 					</div>
 				</li>
 			</ul>
