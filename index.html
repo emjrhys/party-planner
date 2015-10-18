@@ -10,6 +10,10 @@
 		<link rel="stylesheet" href="./assets/styles/css/styles.css">
 	</head>
 	<body ng-controller="mainCtrl">
+		<section id="selection">
+			
+		</section>
+
 		<section id="grid">
 			<header>
 				<h2>Hawaiian Birthday Party</h2>
@@ -17,12 +21,12 @@
 			</header>
 			<ul>
 				<li class="item" ng-repeat="item in items" ng-click="addToCart($index)">
-					<button ng-click="removeFromList($index)">X</button>
 					<img ng-src="{{item.thumbnailImage}}">
 					<div>
 						<h3>{{item.name}}</h3>
+						<p class="price">${{item.msrp}}</p>
 						<p>{{item.shortDescription}}</p>
-						<p>${{item.msrp}}</p>
+						<button ng-click="removeFromList($index)">X</button>
 					</div>
 				</li>
 			</ul>
@@ -35,10 +39,13 @@
 			</header>
 			<ul class="cart">
 				<li class="item" ng-repeat="item in cart">
-					<button ng-click="removeFromCart($index)">X</button>
 					<img ng-src="{{item.thumbnailImage}}">
-					<h3>{{item.name}}</h3>
-					<p>{{item.shortDescription}}</p>
+					<div>
+						<h3>{{item.name}}</h3>
+						<p class="price">${{item.msrp}}</p>
+						<p>{{item.shortDescription}}</p>
+						<button ng-click="removeFromCart($index)">X</button>
+					</div>
 				</li>
 			</ul>
 		</section>
