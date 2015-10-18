@@ -14,7 +14,8 @@ angular.module('lego', [])
 		"College": ["College", "Toga", "Blacklight", "Glow"],
 		"Life Event": ["Bachelor", "Bachelorette", "Wedding", "Baby Shower", "Graduation", "Retirement"],
 		"Holiday": ["New Year", "Fourth of July", "Halloween", "Christmas"],
-		"Game Day": ["Basketball", "Hockey", "Baseball", "Football", "Soccer"]
+		"Game Day": ["Basketball", "Hockey", "Baseball", "Football", "Soccer"],
+		"Pool": ["Pool", "Hawaiian", "Ocean"]
 	}
 
 	$scope.process = 0;
