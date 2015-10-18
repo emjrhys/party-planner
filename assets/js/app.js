@@ -73,4 +73,8 @@ angular.module('lego', [])
 		searchParam = searchIds.join(",");
 		console.log(searchParam);
 	}
+
+	$scope.apiCall = funciton() {
+		
+	}
 });
