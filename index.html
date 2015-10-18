@@ -43,11 +43,12 @@
 		<section id="grid">
 			<header>
 				<a ng-click="resetParty()">Change party</a>
-				<h2>{{party.theme}} {{party.type}} Party</h2>
+				<h2><span ng-if="party.theme!=party.type">{{party.theme}}</span> {{party.type}} Party</h2>
+				<a ng-click="addRec()">Recommended</a>
 				<hr>
 			</header>
 			<ul>
-				<li class="item" ng-repeat="item in items" ng-click="addToCart($index)">
+				<li class="item" ng-repeat="item in items track by $index" ng-click="addToCart($index)" ng-if="item.salePrice">
 					<button ng-click="removeFromList($index)">X</button>
 					<img ng-src="{{item.thumbnailImage}}">
 					<div class="content">
@@ -71,7 +72,7 @@
 						<img ng-src="{{item.thumbnailImage}}">
 						<div class="content">
 							<div class="savings">
-								<span class="strikethrough" ng-if="item.msrp"><span class="price">&nbsp;${{item.msrp.toFixed(2)}}&nbsp;</span></span>
+								<span class="strikethrough" ng-if="item.msrp && item.msrp > item.salePrice"><span class="price">&nbsp;${{item.msrp.toFixed(2)}}&nbsp;</span></span>
 								&nbsp;
 								<span class="sale-price">${{item.salePrice.toFixed(2)}}</span>
 							</div>
@@ -83,7 +84,7 @@
 				</ul>
 				<div class="cost">
 					<h3>Subtotal: <span class="total">${{(totalCost).toFixed(2)}}</h3>
-					<p class="savings" ng-if="cart.length > 0">You saved <span>${{(totalCost - wTotalCost).toFixed(2)}}</span> by shopping <br>at Walmart!</p>
+					<p class="savings" ng-if="cart.length > 0 && totalCost - wTotalCost > 0">You saved <span>${{(totalCost - wTotalCost).toFixed(2)}}</span> by shopping <br>at Walmart!</p>
 				</div>
 				<button class="checkout" ng-show="cart.length > 0" ng-click="checkOut()">I'm ready to party!</button>
 			</div>

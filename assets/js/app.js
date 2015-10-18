@@ -4,9 +4,13 @@ angular.module('lego', [])
 	var apiKey = '85sxht8kfrf85keus8du5z8u';
 	var base = 'http://api.walmartlabs.com/v1/search?apiKey=85sxht8kfrf85keus8du5z8u&query=';
 	var checkOutUrl = 'http://api.walmartlabs.com/v1/items?&apiKey=' + apiKey + '&ids=';
+	var keywords = [
+		"plate", "banner", "candle", "balloon",
+		"party", "napkins", "snack", "drink"
+	]
 
 	$scope.themes = {
-		"Birthday": ["Standard", "Pokemon", "Dora", "Batman"],
+		"Birthday": ["Birthday", "Pokemon", "Dora", "Batman"],
 		"College": ["Toga", "Blacklight", "Glow"],
 		"Life Event": ["Bachelor", "Wedding", "Baby Shower", "Graduation", "Retirement"],
 		"Holiday": ["New Year", "Fourth of July", "Halloween", "Christmas"],
@@ -20,6 +24,7 @@ angular.module('lego', [])
 	$scope.items = []; 
 	$scope.cart = [];
 	$scope.removed = [];
+	recommended = [];
 	$scope.totalCost = 0;
 	$scope.wTotalCost = 0;
 
@@ -34,9 +39,13 @@ angular.module('lego', [])
 
 	$scope.apiCalls = function() {
 		var urls = [];
-		urls.push(base + $scope.party.type + ' party supplies');
-		urls.push(base + $scope.party.theme + ' party supplies');
-		// urls.push(base + $scope.party.keyword + ' party supplies');
+		var words = [];
+		var index = 0;
+		var minPrice = 0;
+		keywords.forEach(function(word){
+			urls.push(base + $scope.party.theme + ' ' + word + '&numItems=4');
+			words.push(word);
+		});
 		urls.forEach(function(e, i){
 			setTimeout(function() {
 				$.ajax({
@@ -44,11 +53,27 @@ angular.module('lego', [])
 		  			dataType: "jsonp",
 		  			success: function (data) {
 	  					console.log(data);
+  						if(!data.items) return;
+							data.items.forEach(function(e, idx) {
+  							if(e.salePrice != null) {	
+								if(e.name.search(words[idx])) {
+									if(minPrice = 0) {
+										minPlace = e.salePrice;
+										index = idx;
+									}
+									if(e.salePrice < minPrice) {
+										index = idx;
+										minPrice = e.salePrice;
+									}
+								}
+							}
+						});
+						recommended = recommended.concat(data.items[index]);
 		    			$scope.items = $scope.items.concat(data.items);
 		    			$scope.$apply();
 		  			}
 		  		});
-			}, i * 50);
+			}, i * 200);
 		});
 	}
 
@@ -106,5 +131,12 @@ angular.module('lego', [])
 		$scope.process = 1;
 		$scope.items = [];
 		$scope.cart = [];
+		recommended = [];
+		updateCost();
+	}
+
+	$scope.addRec = function() {
+		recommended.forEach(function(e) {$scope.cart.push(e)});
+		updateCost();
 	}
 });
