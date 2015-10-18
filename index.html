@@ -16,6 +16,7 @@
 				<h2>The easy peasy lemon squeezy party planner</h2>
 				<button ng-click="process = process + 1">Let's plan my party!</button>
 			</div>
+
 			<div class="stage-1" ng-show="process==1">
 				<h1>What type of party are you having?</h1>
 				<div class="options">
@@ -26,6 +27,7 @@
 				</div>
 				<button ng-disabled="!party.type" ng-click="process = process + 1">Next!</button>
 			</div>
+			
 			<div class="stage-2" ng-show="process==2">
 				<h1>What party theme do you want?</h1>
 				<div class="options">
@@ -83,6 +85,7 @@
 					<h3>Subtotal: <span class="total">${{(totalCost).toFixed(2)}}</h3>
 					<p class="savings" ng-if="cart.length > 0">You saved <span>${{(totalCost - wTotalCost).toFixed(2)}}</span> by shopping <br>at Walmart!</p>
 				</div>
+				<button class="checkout" ng-show="cart.length > 0" ng-click="checkOut()">I'm ready to party!</button>
 			</div>
 		</section>
 
