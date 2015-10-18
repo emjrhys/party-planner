@@ -12,7 +12,7 @@ angular.module('lego', [])
 		"Birthday": ["Standard", "Pokemon", "Dora", "Batman"],
 		"College": ["Toga", "Blacklight", "Glow"],
 		"Life Event": ["Bachelor", "Wedding", "Baby Shower", "Graduation", "Retirement"],
-		"Holiday": ["New Year", "Fourth of July", "Halloween"],
+		"Holiday": ["New Year", "Fourth of July", "Halloween", "Christmas"],
 		"Game Day": ["Basketball", "Hockey", "Baseball", "Football", "Soccer"]
 	}
 
