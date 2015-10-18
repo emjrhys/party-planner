@@ -15,7 +15,8 @@
 				<img ng-src="{{item.thumbnailImage}}">
 				<h3>{{item.name}}</h3>
 				<p>{{item.shortDescription}}</p>
-				<p>${{item.msrp}}</p>
+				<p ng-if="item.msrp">${{item.msrp}}</p>
+				<p ng-if="!item.msrp">${{item.salePrice}}</p>
 			</li>
 		</ul>
 		<hr>
@@ -26,8 +27,15 @@
 				<img ng-src="{{item.thumbnailImage}}">
 				<h3>{{item.name}}</h3>
 				<p>{{item.shortDescription}}</p>
+				<P ng-if="item.msrp">${{item.msrp}}</p>
+				<p ng-if="!item.msrp">${{item.salePrice}}</p>
 			</li>
 		</ul>
+		<h3>Total cost</h3>
+		<p>Market Price: ${{totalCost}}</p>
+		<p>Walmart Price: ${{wTotalCost}}</p>
+		<p>Savings from shopping at Walmart: ${{(totalCost - wTotalCost).toFixed(2)}}</p>
+		<button ng-click="updateSearchParam()">Update</button>
 
 		<script src="./assets/js/jquery-3.0.0-alpha1.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
