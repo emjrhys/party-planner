@@ -2,18 +2,19 @@ angular.module('lego', [])
 
 .controller('mainCtrl', function($scope) {
 	var apiKey = '85sxht8kfrf85keus8du5z8u';
-	var url = 'http://api.walmartlabs.com/v1/search?apiKey=85sxht8kfrf85keus8du5z8u&query=ipod&categoryId=3944';
+	var url = 'http://api.walmartlabs.com/v1/search?apiKey=85sxht8kfrf85keus8du5z8u&query=batman birthday&categoryId=2637&numItems=25';
 
-	var themes = {
-		"Birthday": [{theme: "Standard", call: ""}, "Pokemon", "Dora", {theme: "Any", call: ""}],
+	$scope.themes = {
+		"Birthday": ["Standard", "Pokemon", "Dora", "Batman"],
 		"College": ["Toga", "Blacklight", "Glow"],
 		"Life Event": ["Bachelor", "Wedding", "Baby Shower", "Graduation", "Retirement"],
 		"Holiday": ["New Year", "Fourth of July", "Halloween"],
-		"Game Day": [{theme: "Basketball", call: ""}, "Hockey", "Baseball", "Football", "Soccer"]
+		"Game Day": ["Basketball", "Hockey", "Baseball", "Football", "Soccer"]
 	}
 
-	$scope.partyType = null;
-	$scope.partyTheme = null;
+	$scope.process = 0;
+
+	$scope.party = {};
 
 	$scope.items = []; 
 	$scope.cart = [];
