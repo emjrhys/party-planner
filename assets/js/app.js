@@ -14,6 +14,7 @@ angular.module('lego', [])
 		$scope.items = data.items;
 		$scope.$apply();
 	});
+
 	// $.ajax({
 	//   url: url,
 	//   dataType: "jsonp",
@@ -35,7 +36,7 @@ angular.module('lego', [])
 	}
 
 	$scope.removeFromList = function(idx) {
-		$scope.removed.push($scope.items(idx));
+		$scope.removed.push($scope.items[idx]);
 		$scope.items.splice(idx,1);
 	}
 });

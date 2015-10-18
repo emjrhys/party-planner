@@ -5,3 +5,6 @@ html, body {
   background-color: #eee; }
   .item:hover {
     background-color: #fff; }
+  .item button {
+    position: relative;
+    z-index: 1; }
