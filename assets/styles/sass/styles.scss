@@ -1,33 +1,81 @@
 $cart-width: 400px;
 
+$button-blue: #6cc2e0;
+$title-blue: #88dce5;
 $cart-background: #e9f4f3;
+$dark-grey: #808080;
+$light-grey: #b3b3b3;
+$darkest-grey: #4d4d4d;
 
 html, body {
-	background-color: #eee;
+	background-color: #fff;
 	font-family: BrandonReg, serif; 
 }
 
 .item {
-	background-color: #eee;
-
-	&:hover {
-		background-color: #fff;
-	}
-
 	button {
 		position: relative;
 		z-index: 1;
 	}
 }
 
+h2 {
+	margin-bottom: 0;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
 section#grid {
 	float: left;
 	width: calc(100% - 400px);
+	height: 100vh;
+
+	overflow: hidden;
+
+	header {
+		margin: 0 auto;
+		padding: 0 30px;
+	}
+
+	h2 {
+		color: $title-blue;
+	}
+
+	hr {
+		border: 1px solid $title-blue;
+	}
+
+	ul {
+		height: calc(100% - 80px);
+		overflow-y: scroll;
+	}
 }
 
 section#cart {
-	float: right;
+	position: fixed;
+	top: 0;
+	right: 0;
+
 	width: $cart-width;
+	height: 100vh;
 
 	background-color: $cart-background;
+	border-left: 2px solid $dark-grey;
+
+	header {
+		margin: 0 auto;
+		padding: 0 30px;
+	}
+
+	hr {
+		border: 1px solid $dark-grey;
+	}
+
+	ul {
+		height: calc(100% - 80px);
+		overflow-y: scroll;
+	}
 }

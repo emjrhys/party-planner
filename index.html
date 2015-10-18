@@ -11,8 +11,10 @@
 	</head>
 	<body ng-controller="mainCtrl">
 		<section id="grid">
-			<h2>Hawaiian Birthday Party</h2>
-			<hr>
+			<header>
+				<h2>Hawaiian Birthday Party</h2>
+				<hr>
+			</header>
 			<ul>
 				<li class="item" ng-repeat="item in items" ng-click="addToCart($index)">
 					<button ng-click="removeFromList($index)">X</button>
@@ -27,7 +29,10 @@
 		</section>
 
 		<section id="cart">
-			<h2>Cart</h2>
+			<header>
+				<h2>Cart</h2>
+				<hr>
+			</header>
 			<ul class="cart">
 				<li class="item" ng-repeat="item in cart">
 					<button ng-click="removeFromCart($index)">X</button>

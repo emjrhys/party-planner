@@ -1,20 +1,47 @@
 html, body {
-  background-color: #eee;
+  background-color: #fff;
   font-family: BrandonReg, serif; }
 
-.item {
-  background-color: #eee; }
-  .item:hover {
-    background-color: #fff; }
-  .item button {
-    position: relative;
-    z-index: 1; }
+.item button {
+  position: relative;
+  z-index: 1; }
+
+h2 {
+  margin-bottom: 0; }
+
+ul {
+  list-style: none;
+  padding: 0; }
 
 section#grid {
   float: left;
-  width: calc(100% - 400px); }
+  width: calc(100% - 400px);
+  height: 100vh;
+  overflow: hidden; }
+  section#grid header {
+    margin: 0 auto;
+    padding: 0 30px; }
+  section#grid h2 {
+    color: #88dce5; }
+  section#grid hr {
+    border: 1px solid #88dce5; }
+  section#grid ul {
+    height: calc(100% - 80px);
+    overflow-y: scroll; }
 
 section#cart {
-  float: right;
+  position: fixed;
+  top: 0;
+  right: 0;
   width: 400px;
-  background-color: #e9f4f3; }
+  height: 100vh;
+  background-color: #e9f4f3;
+  border-left: 2px solid #808080; }
+  section#cart header {
+    margin: 0 auto;
+    padding: 0 30px; }
+  section#cart hr {
+    border: 1px solid #808080; }
+  section#cart ul {
+    height: calc(100% - 80px);
+    overflow-y: scroll; }
