@@ -51,8 +51,8 @@
 					<img ng-src="{{item.thumbnailImage}}">
 					<div class="content">
 						<h3>{{item.name}}</h3>
-						<p ng-if="item.msrp" class="price">${{item.msrp}}</p>
-						<p ng-if="!item.msrp" class="price">${{item.salePrice}}</p>
+						<p ng-if="item.msrp" class="price">${{item.msrp.toFixed(2)}}</p>
+						<p ng-if="!item.msrp" class="price">${{item.salePrice.toFixed(2)}}</p>
 						<!-- <p>{{item.shortDescription}}</p> -->
 					</div>
 				</li>
@@ -71,9 +71,9 @@
 						<img ng-src="{{item.thumbnailImage}}">
 						<div class="content">
 							<div class="savings">
-								<span class="strikethrough" ng-if="item.msrp"><span class="price">&nbsp;${{item.msrp}}&nbsp;</span></span>
+								<span class="strikethrough" ng-if="item.msrp"><span class="price">&nbsp;${{item.msrp.toFixed(2)}}&nbsp;</span></span>
 								&nbsp;
-								<span class="sale-price">${{item.salePrice}}</span>
+								<span class="sale-price">${{item.salePrice.toFixed(2)}}</span>
 							</div>
 
 							<h3>{{item.name}}</h3>
