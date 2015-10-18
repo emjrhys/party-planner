@@ -11,15 +11,18 @@
 	<body ng-controller="mainCtrl">
 		<ul>
 			<li class="item" ng-repeat="item in items" ng-click="addToCart($index)">
+				<button ng-click="removeFromList($index)">X</button>
 				<img ng-src="{{item.thumbnailImage}}">
 				<h3>{{item.name}}</h3>
 				<p>{{item.shortDescription}}</p>
+				<p>${{item.msrp}}</p>
 			</li>
 		</ul>
 		<hr>
 		<h2>Cart</h2>
 		<ul class="cart">
 			<li class="item" ng-repeat="item in cart">
+				<button ng-click="removeFromCart($index)">X</button>
 				<img ng-src="{{item.thumbnailImage}}">
 				<h3>{{item.name}}</h3>
 				<p>{{item.shortDescription}}</p>
