@@ -91,10 +91,12 @@ section#cart {
 
 	header {
 		margin: 0 auto;
-	}
-
-	h2 {
 		color: $medium-grey;
+
+		.count {
+			float: right;
+			padding-top: 10px;
+		}
 	}
 
 	hr {

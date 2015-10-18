@@ -202,9 +202,11 @@ section#cart {
   background-color: #e9f4f3;
   border-left: 2px solid #808080; }
   section#cart header {
-    margin: 0 auto; }
-  section#cart h2 {
+    margin: 0 auto;
     color: #808080; }
+    section#cart header .count {
+      float: right;
+      padding-top: 10px; }
   section#cart hr {
     border: 1px solid #808080; }
   section#cart ul {
