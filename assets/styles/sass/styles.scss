@@ -83,6 +83,8 @@ section#selection {
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
 
 		h1 {
 			text-transform: uppercase;
@@ -318,6 +320,29 @@ section#cart {
 			&:hover {
 				color: $product-side-blue;
 			}
+		}
+	}
+
+	.checkout {
+		position: absolute;
+		bottom: 20px;
+		left: 0; right: 0;
+
+		width: 80%;
+		margin: 0 auto;
+		padding: 12px 0;
+
+		background-color: $cta-blue;
+		color: #fff;
+		font-size: 1.4em;
+		font-family: BrandonLight;
+
+		border-radius: 10px;
+		border: none;
+		outline: none;
+
+		&:hover {
+			background-color: $light-blue-muted;
 		}
 	}
 }

@@ -3,6 +3,7 @@ angular.module('lego', [])
 .controller('mainCtrl', function($scope) {
 	var apiKey = '85sxht8kfrf85keus8du5z8u';
 	var url = 'http://api.walmartlabs.com/v1/search?apiKey=85sxht8kfrf85keus8du5z8u&query=batman birthday&categoryId=2637&numItems=25';
+	var checkOutUrl = 'http://api.walmartlabs.com/v1/items?&apiKey=' + apiKey + '&ids=';
 
 	$scope.themes = {
 		"Birthday": ["Standard", "Pokemon", "Dora", "Batman"],
@@ -12,7 +13,7 @@ angular.module('lego', [])
 		"Game Day": ["Basketball", "Hockey", "Baseball", "Football", "Soccer"]
 	}
 
-	$scope.process = 0;
+	$scope.process = 3;
 
 	$scope.party = {};
 
@@ -73,5 +74,20 @@ angular.module('lego', [])
 		$scope.cart.forEach(function(e) {searchIds.push(e.itemId)});
 		searchParam = searchIds.join(",");
 		console.log(searchParam);
+	}
+
+	$scope.checkOut = function() {
+		var productIds = [];
+		$scope.cart.forEach(function(e) {productIds.push(e.itemId)});
+		productIds = productIds.join(",");
+		console.log(productIds);
+
+		$.ajax({
+			url: (checkOutUrl + productIds),
+			dataType: "jsonp",
+			success: function (data) {
+				console.log(data);
+			}
+		});
 	}
 });

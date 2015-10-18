@@ -173,7 +173,9 @@ section#selection {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); }
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%); }
     section#selection > div h1 {
       text-transform: uppercase;
       font-family: BrandonBlack;
@@ -359,6 +361,23 @@ section#cart {
       cursor: pointer; }
       section#cart .item a:hover {
         color: #88dce5; }
+  section#cart .checkout {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    width: 80%;
+    margin: 0 auto;
+    padding: 12px 0;
+    background-color: #6cc2e0;
+    color: #fff;
+    font-size: 1.4em;
+    font-family: BrandonLight;
+    border-radius: 10px;
+    border: none;
+    outline: none; }
+    section#cart .checkout:hover {
+      background-color: #9fd1d3; }
 
 .cost {
   text-align: right; }
