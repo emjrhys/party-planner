@@ -37,7 +37,7 @@ angular.module('lego', [])
 
 	$scope.apiCalls = function() {
 		var urls = [];
-		keywords.forEach(function(k){urls.push(base + $scope.party.theme + ' ' + k + '&numItems=4')})
+		keywords.forEach(function(k){urls.push(base + $scope.party.theme + ' ' + k + '&sort=bestseller&numItems=4')})
 		urls.forEach(function(e){
 			$.ajax({
 	  			url: e,
