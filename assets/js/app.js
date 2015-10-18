@@ -2,8 +2,7 @@ angular.module('lego', [])
 
 .controller('mainCtrl', function($scope) {
 	var apiKey = '85sxht8kfrf85keus8du5z8u';
-	var url = 'http://api.walmartlabs.com/v1/search?apiKey=85sxht8kfrf85keus8du5z8u&query=batman birthday&categoryId=2637&numItems=25';
-
+	var base = 'http://api.walmartlabs.com/v1/search?apiKey=85sxht8kfrf85keus8du5z8u&query=';
 	$scope.themes = {
 		"Birthday": ["Standard", "Pokemon", "Dora", "Batman"],
 		"College": ["Toga", "Blacklight", "Glow"],
@@ -25,21 +24,29 @@ angular.module('lego', [])
 	var searchIds = [];
 	var searchParam = 0;
 
-	$.getJSON("data/whatever.json", function(data){
-		console.log(data);
-		$scope.items = data.items;
-		$scope.$apply();
-	});
-
-	// $.ajax({
-	//   url: url,
-	//   dataType: "jsonp",
-	//   success: function (data) {
-	//   	console.log(data);
-	//     $scope.items = data.items;
-	//     $scope.$apply();
-	//   }
+	// $.getJSON("data/whatever.json", function(data){
+	// 	console.log(data);
+	// 	$scope.items = data.items;
+	// 	$scope.$apply();
 	// });
+
+	$scope.apiCalls = function() {
+		var urls = [];
+		urls.push(base + $scope.party.type + ' party supplies');
+		urls.push(base + $scope.party.theme + ' party supplies');
+		// urls.push(base + $scope.party.keyword + ' party supplies');
+		urls.forEach(function(e){
+			$.ajax({
+	  			url: e,
+	  			dataType: "jsonp",
+	  			success: function (data) {
+  					console.log(data);
+	    			$scope.items = $scope.items.concat(data.items);
+	    			$scope.$apply();
+	  			}
+	  		});
+		});
+	}
 
 	$scope.addToCart = function(idx) {
 		$scope.cart.push($scope.items[idx]);
@@ -73,9 +80,5 @@ angular.module('lego', [])
 		$scope.cart.forEach(function(e) {searchIds.push(e.itemId)});
 		searchParam = searchIds.join(",");
 		console.log(searchParam);
-	}
-
-	$scope.apiCall = funciton() {
-		
 	}
 });

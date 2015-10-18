@@ -34,7 +34,7 @@
 						<label for="theme_{{theme}}">{{theme}}</label>
 					</div>
 				</div>
-				<button ng-disabled="!party.theme" ng-click="process = process + 1">Next!</button>
+				<button ng-disabled="!party.theme" ng-click="process = process + 1; apiCalls()">Next!</button>
 			</div>
 		</section>
 
