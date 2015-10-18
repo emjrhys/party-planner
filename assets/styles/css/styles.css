@@ -287,14 +287,20 @@ section#grid {
     margin: 0 auto;
     padding: 0 30px; }
     section#grid header a {
-      float: right;
-      padding-top: 10px;
-      color: #88dce5;
+      margin-left: 10px;
       cursor: pointer; }
       section#grid header a:hover {
+        color: #808080; }
+    section#grid header .reset {
+      float: right;
+      padding-top: 28px;
+      color: #88dce5;
+      cursor: pointer; }
+      section#grid header .reset:hover {
         color: #6cc2e0; }
   section#grid h2 {
-    color: #88dce5; }
+    color: #88dce5;
+    display: inline-block; }
   section#grid hr {
     border: 1px solid #88dce5; }
   section#grid ul {

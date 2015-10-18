@@ -232,9 +232,18 @@ section#grid {
 		margin: 0 auto;
 		padding: 0 30px;
 
-		a { 
+		a {
+			margin-left: 10px;
+			cursor: pointer;
+
+			&:hover {
+				color: $medium-grey;
+			}
+		}
+
+		.reset { 
 			float: right;
-			padding-top: 10px;
+			padding-top: 28px;
 
 			color: $product-side-blue;
 
@@ -248,6 +257,7 @@ section#grid {
 
 	h2 {
 		color: $product-side-blue;
+		display: inline-block;
 	}
 
 	hr {

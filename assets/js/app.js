@@ -11,7 +11,7 @@ angular.module('lego', [])
 
 	$scope.themes = {
 		"Birthday": ["Birthday", "Pokemon", "Dora", "Batman"],
-		"College": ["Toga", "Blacklight", "Glow"],
+		"College": ["College", "Toga", "Blacklight", "Glow"],
 		"Life Event": ["Bachelor", "Wedding", "Baby Shower", "Graduation", "Retirement"],
 		"Holiday": ["New Year", "Fourth of July", "Halloween", "Christmas"],
 		"Game Day": ["Basketball", "Hockey", "Baseball", "Football", "Soccer"]
@@ -23,7 +23,6 @@ angular.module('lego', [])
 
 	$scope.items = []; 
 	$scope.cart = [];
-	$scope.removed = [];
 	recommended = [];
 	$scope.totalCost = 0;
 	$scope.wTotalCost = 0;
@@ -39,12 +38,9 @@ angular.module('lego', [])
 
 	$scope.apiCalls = function() {
 		var urls = [];
-		var words = [];
 		var index = 0;
-		var minPrice = 0;
 		keywords.forEach(function(word){
 			urls.push(base + $scope.party.theme + ' ' + word + '&numItems=4');
-			words.push(word);
 		});
 		urls.forEach(function(e, i){
 			setTimeout(function() {
@@ -54,17 +50,13 @@ angular.module('lego', [])
 		  			success: function (data) {
 	  					console.log(data);
   						if(!data.items) return;
-							data.items.forEach(function(e, idx) {
+
+  						var minPrice = 10000000;
+						data.items.forEach(function(e, idx) {
   							if(e.salePrice != null) {	
-								if(e.name.search(words[idx])) {
-									if(minPrice = 0) {
-										minPlace = e.salePrice;
-										index = idx;
-									}
-									if(e.salePrice < minPrice) {
-										index = idx;
-										minPrice = e.salePrice;
-									}
+								if(e.salePrice < minPrice) {
+									index = idx;
+									minPrice = e.salePrice;
 								}
 							}
 						});
@@ -78,19 +70,22 @@ angular.module('lego', [])
 	}
 
 	$scope.addToCart = function(idx) {
-		$scope.cart.push($scope.items[idx]);
-		$scope.items.splice(idx, 1);
-		updateCost();
+		if (!inCart($scope.items[idx])) {
+			$scope.cart.push($scope.items[idx]);
+			$scope.items.splice(idx, 1);
+			updateCost();
+		}
 	}
 
 	$scope.removeFromCart = function(idx) {
-		$scope.removed.push($scope.cart[idx]);
+		if (!inItems($scope.cart[idx])) {
+			$scope.items.push($scope.cart[idx]);
+		}
 		$scope.cart.splice(idx, 1);
 		updateCost();
 	}
 
 	$scope.removeFromList = function(idx) {
-		$scope.removed.push($scope.items[idx]);
 		$scope.items.splice(idx,1);
 	}
 
@@ -135,8 +130,30 @@ angular.module('lego', [])
 		updateCost();
 	}
 
+	function inCart(e) {
+		return $.grep($scope.cart, function(el){ return el.itemId == e.itemId; }).length > 0;
+	}
+
+	function inItems(e) {
+		return $.grep($scope.items, function(el){ return el.itemId == e.itemId; }).length > 0;
+	}
+
+	function removeItem(item) {
+		$scope.items.forEach(function(e, i) {
+			if (e.itemId == item.itemId) {
+				$scope.items.splice(i, 1);
+				return;
+			}
+		});
+	}
+
 	$scope.addRec = function() {
-		recommended.forEach(function(e) {$scope.cart.push(e)});
+		recommended.forEach(function(e) {
+			if (!inCart(e)) {
+				$scope.cart.push(e)
+				removeItem(e);
+			}
+		});
 		updateCost();
 	}
 });
