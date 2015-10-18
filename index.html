@@ -27,7 +27,7 @@
 				</div>
 				<button ng-disabled="!party.type" ng-click="process = process + 1">Next!</button>
 			</div>
-			
+
 			<div class="stage-2" ng-show="process==2">
 				<h1>What party theme do you want?</h1>
 				<div class="options">
@@ -42,7 +42,7 @@
 
 		<section id="grid">
 			<header>
-				<h2>Hawaiian Birthday Party</h2>
+				<h2>{{party.theme}} {{party.type}} Party</h2>
 				<hr>
 			</header>
 			<ul>
