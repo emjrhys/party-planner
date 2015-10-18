@@ -12,7 +12,7 @@
 	<body ng-controller="mainCtrl">
 		<section id="selection" class="stage-{{process}}">
 			<div class="stage-0" ng-show="process==0">
-				<h1>It's party time!</h1>
+				<img class ="logo" src="./assets/img/party-time.png" height="40px">
 				<h2>The easy peasy lemon squeezy party planner</h2>
 				<button ng-click="process = process + 1">Let's plan my party!</button>
 			</div>
@@ -22,7 +22,7 @@
 				<div class="options">
 					<div class="opt" ng-repeat="(type, theme) in themes">
 						<input id="type_{{type}}" type="radio" name="type" value="{{type}}" ng-model="party.type">
-						<label for="type_{{type}}">{{type}}</label>
+						<label for="type_{{type}}" ng-click="changeBackground(type)">{{type}}</label>
 					</div>
 				</div>
 				<button ng-disabled="!party.type" ng-click="process = process + 1">Next!</button>
