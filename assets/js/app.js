@@ -5,11 +5,11 @@ angular.module('lego', [])
 	var url = 'http://api.walmartlabs.com/v1/search?apiKey=85sxht8kfrf85keus8du5z8u&query=ipod&categoryId=3944';
 
 	var themes = {
-		"Birthday": ["Standard", "Pokemon", "Dora"],
+		"Birthday": [{theme: "Standard", call: ""}, "Pokemon", "Dora", {theme: "Any", call: ""}],
 		"College": ["Toga", "Blacklight", "Glow"],
 		"Life Event": ["Bachelor", "Wedding", "Baby Shower", "Graduation", "Retirement"],
 		"Holiday": ["New Year", "Fourth of July", "Halloween"],
-		"Game Day": ["Basketball", "Hockey", "Baseball", "Football", "Soccer"]
+		"Game Day": [{theme: "Basketball", call: ""}, "Hockey", "Baseball", "Football", "Soccer"]
 	}
 
 	$scope.partyType = null;
