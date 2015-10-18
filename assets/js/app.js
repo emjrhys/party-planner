@@ -10,10 +10,10 @@ angular.module('lego', [])
 	]
 
 	$scope.themes = {
-		"Birthday": ["Birthday", "Pokemon", "Dora", "Batman"],
+		"Birthday": ["Birthday", "Pokemon", "Dora", "Batman", "Dinosaur", "LEGO"],
 		"College": ["College", "Toga", "Blacklight", "Glow"],
 		"Life Event": ["Bachelor", "Bachelorette", "Wedding", "Baby Shower", "Graduation", "Retirement"],
-		"Holiday": ["New Year", "Fourth of July", "Halloween", "Christmas"],
+		"Holiday": ["New Year", "Fourth of July", "Halloween", "Christmas", "Valentine's Day", "Thanksgiving"],
 		"Game Day": ["Basketball", "Hockey", "Baseball", "Football", "Soccer"],
 		"Pool": ["Pool", "Hawaiian", "Ocean"]
 	}
