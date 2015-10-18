@@ -191,7 +191,7 @@ section#selection {
       border-radius: 8px;
       border: none;
       outline: none;
-      font-family: BrandonLight;
+      font-family: BrandonReg;
       font-size: 1.3em; }
     section#selection > div button[disabled] {
       background-color: #ddd !important;
@@ -294,6 +294,8 @@ section#grid {
       color: #88dce5; }
       section#grid header a:hover {
         color: #6cc2e0; }
+    section#grid header #line {
+      color: #808080; }
     section#grid header .reset {
       float: right;
       padding-top: 28px;
@@ -362,6 +364,8 @@ section#cart {
       display: table; }
     section#cart .item:after {
       clear: both; }
+    section#cart .item h3 {
+      padding-right: 30px; }
     section#cart .item img {
       width: 60px; }
     section#cart .item .content {
