@@ -4,6 +4,9 @@ angular.module('lego', [])
 	var apiKey = '85sxht8kfrf85keus8du5z8u';
 	var base = 'http://api.walmartlabs.com/v1/search?apiKey=85sxht8kfrf85keus8du5z8u&query=';
 	var checkOutUrl = 'http://api.walmartlabs.com/v1/items?&apiKey=' + apiKey + '&ids=';
+	var keywords = [
+		"plate", "banner", "cup", "candle", "balloon",
+		"party", "napkins", "snack", "drink"]
 
 	$scope.themes = {
 		"Birthday": ["Standard", "Pokemon", "Dora", "Batman"],
@@ -34,9 +37,7 @@ angular.module('lego', [])
 
 	$scope.apiCalls = function() {
 		var urls = [];
-		urls.push(base + $scope.party.type + ' party supplies');
-		urls.push(base + $scope.party.theme + ' party supplies');
-		// urls.push(base + $scope.party.keyword + ' party supplies');
+		keywords.forEach(function(k){urls.push(base + $scope.party.theme + ' ' + k + '&numItems=4')})
 		urls.forEach(function(e){
 			$.ajax({
 	  			url: e,

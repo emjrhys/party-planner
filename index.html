@@ -46,7 +46,7 @@
 				<hr>
 			</header>
 			<ul>
-				<li class="item" ng-repeat="item in items" ng-click="addToCart($index)">
+				<li class="item" ng-repeat="item in items track by $index" ng-click="addToCart($index)">
 					<button ng-click="removeFromList($index)">X</button>
 					<img ng-src="{{item.thumbnailImage}}">
 					<div class="content">
