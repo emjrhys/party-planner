@@ -37,16 +37,18 @@ angular.module('lego', [])
 		urls.push(base + $scope.party.type + ' party supplies');
 		urls.push(base + $scope.party.theme + ' party supplies');
 		// urls.push(base + $scope.party.keyword + ' party supplies');
-		urls.forEach(function(e){
-			$.ajax({
-	  			url: e,
-	  			dataType: "jsonp",
-	  			success: function (data) {
-  					console.log(data);
-	    			$scope.items = $scope.items.concat(data.items);
-	    			$scope.$apply();
-	  			}
-	  		});
+		urls.forEach(function(e, i){
+			setTimeout(function() {
+				$.ajax({
+		  			url: e,
+		  			dataType: "jsonp",
+		  			success: function (data) {
+	  					console.log(data);
+		    			$scope.items = $scope.items.concat(data.items);
+		    			$scope.$apply();
+		  			}
+		  		});
+			}, i * 50);
 		});
 	}
 
@@ -97,5 +99,12 @@ angular.module('lego', [])
 				console.log(data);
 			}
 		});
+	}
+
+	$scope.resetParty = function() {
+		$scope.party = {};
+		$scope.process = 1;
+		$scope.items = [];
+		$scope.cart = [];
 	}
 });

@@ -231,6 +231,19 @@ section#grid {
 	header {
 		margin: 0 auto;
 		padding: 0 30px;
+
+		a { 
+			float: right;
+			padding-top: 10px;
+
+			color: $product-side-blue;
+
+			cursor: pointer;
+
+			&:hover {
+				color: $light-blue;
+			}
+		}
 	}
 
 	h2 {

@@ -286,6 +286,13 @@ section#grid {
   section#grid header {
     margin: 0 auto;
     padding: 0 30px; }
+    section#grid header a {
+      float: right;
+      padding-top: 10px;
+      color: #88dce5;
+      cursor: pointer; }
+      section#grid header a:hover {
+        color: #6cc2e0; }
   section#grid h2 {
     color: #88dce5; }
   section#grid hr {
