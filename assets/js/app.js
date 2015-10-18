@@ -5,6 +5,7 @@ angular.module('lego', [])
 	var url = 'http://api.walmartlabs.com/v1/search?apiKey=85sxht8kfrf85keus8du5z8u&query=ipod&categoryId=3944';
 
 	$scope.items = []; 
+	$scope.cart = [];
 
 	$.ajax({
 	  url: url,
@@ -15,4 +16,9 @@ angular.module('lego', [])
 	    $scope.$apply();
 	  }
 	});
+
+	$scope.addToCart = function(idx) {
+		$scope.cart.push($scope.items[idx]);
+		$scope.items.splice(idx, 1);
+	}
 });

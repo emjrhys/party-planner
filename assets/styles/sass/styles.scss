@@ -1,3 +1,11 @@
 html, body {
 	background-color: #eee;
 }
+
+.item {
+	background-color: #eee;
+
+	&:hover {
+		background-color: #fff;
+	}
+}

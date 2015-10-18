@@ -9,11 +9,22 @@
 		<link rel="stylesheet" href="./assets/styles/css/styles.css">
 	</head>
 	<body ng-controller="mainCtrl">
-		<div ng-repeat="item in items">
-			<img ng-src="{{item.thumbnailImage}}">
-			<h3>{{item.name}}</h3>
-			<p>{{item.shortDescription}}</p>
-		</div>
+		<ul>
+			<li class="item" ng-repeat="item in items" ng-click="addToCart($index)">
+				<img ng-src="{{item.thumbnailImage}}">
+				<h3>{{item.name}}</h3>
+				<p>{{item.shortDescription}}</p>
+			</li>
+		</ul>
+		<hr>
+		<h2>Cart</h2>
+		<ul class="cart">
+			<li class="item" ng-repeat="item in cart">
+				<img ng-src="{{item.thumbnailImage}}">
+				<h3>{{item.name}}</h3>
+				<p>{{item.shortDescription}}</p>
+			</li>
+		</ul>
 
 		<script src="./assets/js/jquery-3.0.0-alpha1.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
